@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jairfrancesco/Imágenes/opensurf/src
+CMAKE_SOURCE_DIR = /home/jairfrancesco/OpenSurf
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jairfrancesco/Imágenes/opensurf/src
+CMAKE_BINARY_DIR = /home/jairfrancesco/OpenSurf
 
 # Include any dependencies generated for this target.
 include CMakeFiles/surffeat.dir/depend.make
@@ -51,17 +51,17 @@ include CMakeFiles/surffeat.dir/flags.make
 
 CMakeFiles/surffeat.dir/main.o: CMakeFiles/surffeat.dir/flags.make
 CMakeFiles/surffeat.dir/main.o: main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jairfrancesco/Imágenes/opensurf/src/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jairfrancesco/OpenSurf/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/surffeat.dir/main.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/surffeat.dir/main.o -c /home/jairfrancesco/Imágenes/opensurf/src/main.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/surffeat.dir/main.o -c /home/jairfrancesco/OpenSurf/main.cpp
 
 CMakeFiles/surffeat.dir/main.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/surffeat.dir/main.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jairfrancesco/Imágenes/opensurf/src/main.cpp > CMakeFiles/surffeat.dir/main.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jairfrancesco/OpenSurf/main.cpp > CMakeFiles/surffeat.dir/main.i
 
 CMakeFiles/surffeat.dir/main.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/surffeat.dir/main.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jairfrancesco/Imágenes/opensurf/src/main.cpp -o CMakeFiles/surffeat.dir/main.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jairfrancesco/OpenSurf/main.cpp -o CMakeFiles/surffeat.dir/main.s
 
 CMakeFiles/surffeat.dir/main.o.requires:
 .PHONY : CMakeFiles/surffeat.dir/main.o.requires
@@ -140,6 +140,6 @@ CMakeFiles/surffeat.dir/clean:
 .PHONY : CMakeFiles/surffeat.dir/clean
 
 CMakeFiles/surffeat.dir/depend:
-	cd /home/jairfrancesco/Imágenes/opensurf/src && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jairfrancesco/Imágenes/opensurf/src /home/jairfrancesco/Imágenes/opensurf/src /home/jairfrancesco/Imágenes/opensurf/src /home/jairfrancesco/Imágenes/opensurf/src /home/jairfrancesco/Imágenes/opensurf/src/CMakeFiles/surffeat.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jairfrancesco/OpenSurf && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jairfrancesco/OpenSurf /home/jairfrancesco/OpenSurf /home/jairfrancesco/OpenSurf /home/jairfrancesco/OpenSurf /home/jairfrancesco/OpenSurf/CMakeFiles/surffeat.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/surffeat.dir/depend
 

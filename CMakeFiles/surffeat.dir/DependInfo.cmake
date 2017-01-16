@@ -4,13 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/jairfrancesco/Imágenes/opensurf/src/main.cpp" "/home/jairfrancesco/Imágenes/opensurf/src/CMakeFiles/surffeat.dir/main.o"
+  "/home/jairfrancesco/OpenSurf/main.cpp" "/home/jairfrancesco/OpenSurf/CMakeFiles/surffeat.dir/main.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/jairfrancesco/Imágenes/opensurf/src/CMakeFiles/surf.dir/DependInfo.cmake"
+  "/home/jairfrancesco/OpenSurf/CMakeFiles/surf.dir/DependInfo.cmake"
   )
 
 # The include file search paths:

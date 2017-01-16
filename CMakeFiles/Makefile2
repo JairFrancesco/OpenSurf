@@ -47,10 +47,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jairfrancesco/Imágenes/opensurf/src
+CMAKE_SOURCE_DIR = /home/jairfrancesco/OpenSurf
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jairfrancesco/Imágenes/opensurf/src
+CMAKE_BINARY_DIR = /home/jairfrancesco/OpenSurf
 
 #=============================================================================
 # Target rules for target CMakeFiles/surf.dir
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/jairfrancesco/Imágenes/opensurf/src
 CMakeFiles/surf.dir/all:
 	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/depend
 	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jairfrancesco/Imágenes/opensurf/src/CMakeFiles  1 2 3 4 5
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jairfrancesco/OpenSurf/CMakeFiles  1 2 3 4 5
 	@echo "Built target surf"
 .PHONY : CMakeFiles/surf.dir/all
 
@@ -69,9 +69,9 @@ all: CMakeFiles/surf.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/surf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jairfrancesco/Imágenes/opensurf/src/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jairfrancesco/OpenSurf/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/surf.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jairfrancesco/Imágenes/opensurf/src/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jairfrancesco/OpenSurf/CMakeFiles 0
 .PHONY : CMakeFiles/surf.dir/rule
 
 # Convenience name for target.
@@ -94,7 +94,7 @@ clean: CMakeFiles/surf.dir/clean
 CMakeFiles/surffeat.dir/all: CMakeFiles/surf.dir/all
 	$(MAKE) -f CMakeFiles/surffeat.dir/build.make CMakeFiles/surffeat.dir/depend
 	$(MAKE) -f CMakeFiles/surffeat.dir/build.make CMakeFiles/surffeat.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jairfrancesco/Imágenes/opensurf/src/CMakeFiles  6
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jairfrancesco/OpenSurf/CMakeFiles  6
 	@echo "Built target surffeat"
 .PHONY : CMakeFiles/surffeat.dir/all
 
@@ -104,9 +104,9 @@ all: CMakeFiles/surffeat.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/surffeat.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jairfrancesco/Imágenes/opensurf/src/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jairfrancesco/OpenSurf/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/surffeat.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jairfrancesco/Imágenes/opensurf/src/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jairfrancesco/OpenSurf/CMakeFiles 0
 .PHONY : CMakeFiles/surffeat.dir/rule
 
 # Convenience name for target.

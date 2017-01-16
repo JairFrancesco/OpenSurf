@@ -6,29 +6,29 @@
 
 #IncludeRegexTransform: 
 
-/home/jairfrancesco/Imágenes/opensurf/src/fasthessian.h
+/home/jairfrancesco/OpenSurf/fasthessian.h
 opencv/cv.h
 -
 ipoint.h
-/home/jairfrancesco/Imágenes/opensurf/src/ipoint.h
+/home/jairfrancesco/OpenSurf/ipoint.h
 vector
 -
 
-/home/jairfrancesco/Imágenes/opensurf/src/integral.h
+/home/jairfrancesco/OpenSurf/integral.h
 algorithm
 -
 opencv/cv.h
 -
 
-/home/jairfrancesco/Imágenes/opensurf/src/ipoint.h
+/home/jairfrancesco/OpenSurf/ipoint.h
 vector
 -
 math.h
 -
 
-/home/jairfrancesco/Imágenes/opensurf/src/kmeans.h
+/home/jairfrancesco/OpenSurf/kmeans.h
 ipoint.h
-/home/jairfrancesco/Imágenes/opensurf/src/ipoint.h
+/home/jairfrancesco/OpenSurf/ipoint.h
 vector
 -
 time.h
@@ -36,47 +36,47 @@ time.h
 stdlib.h
 -
 
-/home/jairfrancesco/Imágenes/opensurf/src/main.cpp
+/home/jairfrancesco/OpenSurf/main.cpp
 surflib.h
-/home/jairfrancesco/Imágenes/opensurf/src/surflib.h
+/home/jairfrancesco/OpenSurf/surflib.h
 kmeans.h
-/home/jairfrancesco/Imágenes/opensurf/src/kmeans.h
+/home/jairfrancesco/OpenSurf/kmeans.h
 ctime
 -
 iostream
 -
 
-/home/jairfrancesco/Imágenes/opensurf/src/surf.h
+/home/jairfrancesco/OpenSurf/surf.h
 opencv/cv.h
 -
 ipoint.h
-/home/jairfrancesco/Imágenes/opensurf/src/ipoint.h
+/home/jairfrancesco/OpenSurf/ipoint.h
 integral.h
-/home/jairfrancesco/Imágenes/opensurf/src/integral.h
+/home/jairfrancesco/OpenSurf/integral.h
 vector
 -
 
-/home/jairfrancesco/Imágenes/opensurf/src/surflib.h
+/home/jairfrancesco/OpenSurf/surflib.h
 opencv/cv.h
 -
 opencv/highgui.h
 -
 integral.h
-/home/jairfrancesco/Imágenes/opensurf/src/integral.h
+/home/jairfrancesco/OpenSurf/integral.h
 fasthessian.h
-/home/jairfrancesco/Imágenes/opensurf/src/fasthessian.h
+/home/jairfrancesco/OpenSurf/fasthessian.h
 surf.h
-/home/jairfrancesco/Imágenes/opensurf/src/surf.h
+/home/jairfrancesco/OpenSurf/surf.h
 ipoint.h
-/home/jairfrancesco/Imágenes/opensurf/src/ipoint.h
+/home/jairfrancesco/OpenSurf/ipoint.h
 utils.h
-/home/jairfrancesco/Imágenes/opensurf/src/utils.h
+/home/jairfrancesco/OpenSurf/utils.h
 
-/home/jairfrancesco/Imágenes/opensurf/src/utils.h
+/home/jairfrancesco/OpenSurf/utils.h
 opencv/cv.h
 -
 ipoint.h
-/home/jairfrancesco/Imágenes/opensurf/src/ipoint.h
+/home/jairfrancesco/OpenSurf/ipoint.h
 vector
 -
 
