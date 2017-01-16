@@ -45,6 +45,12 @@ ctime
 -
 iostream
 -
+opencv2/highgui.hpp
+/home/jairfrancesco/OpenSurf/opencv2/highgui.hpp
+opencv2/calib3d.hpp
+/home/jairfrancesco/OpenSurf/opencv2/calib3d.hpp
+opencv2/imgproc.hpp
+/home/jairfrancesco/OpenSurf/opencv2/imgproc.hpp
 
 /home/jairfrancesco/OpenSurf/surf.h
 opencv/cv.h
