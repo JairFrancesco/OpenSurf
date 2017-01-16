@@ -14,7 +14,7 @@
 #include <ctime>
 #include <iostream>
 
-#define PROCEDURE 1
+#define PROCEDURE 5
 
 //-------------------------------------------------------
 
@@ -46,8 +46,8 @@ int mainImage()
 int mainStaticMatch()
 {
   IplImage *img1, *img2;
-  img1 = cvLoadImage("/Users/kylegoehner/payload/sift/images/ISSAC_0619_0004_brw.jpg");
-  img2 = cvLoadImage("/Users/kylegoehner/payload/sift/images/ISSAC_0619_0005_brw.jpg");
+  img1 = cvLoadImage("panorama_image1.jpg");
+  img2 = cvLoadImage("panorama_image2.jpg");
 
   IpVec ipts1, ipts2;
   surfDetDes(img1,ipts1,false,4,4,2,0.0001f);
