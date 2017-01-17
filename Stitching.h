@@ -12,6 +12,7 @@
 
 #include "fasthessian.h"
 #include "Keypoint.h"
+#include "surf.h"
 #include <vector>
 #include <math.h>
 
@@ -57,7 +58,7 @@ int flred(float flt)
 float gaussian(float x, float y, float sig)
 {
   return 1.0f/(2.0f*pi*sig*sig) * exp( -(x*x+y*y)/(2.0f*sig*sig));
-}
+}   
 
 float gaussian(int x, int y, float sig)
 {
@@ -127,7 +128,6 @@ void Orientation(KVector &kps1,int & index,IplImage* & img)
 
     if (sumX*sumX + sumY*sumY > max) 
     {
-      // store largest orientation
       max = sumX*sumX + sumY*sumY;
       orien = getAngle(sumX, sumY);
     }
@@ -138,7 +138,7 @@ void Orientation(KVector &kps1,int & index,IplImage* & img)
 
 
 
-void Descriptor(bool bUpright,KVector &kps, IplImage* & img, int & index)
+int Descriptor(bool bUpright,KVector &kps, IplImage* & img, int & index)
 {
   int y, x, sample_x, sample_y, count=0;
   int i = 0, ix = 0, j = 0, jx = 0, xs = 0, ys = 0;
@@ -166,6 +166,7 @@ void Descriptor(bool bUpright,KVector &kps, IplImage* & img, int & index)
 
   i = -8;
 
+  std::cout<<"PS: "<<x<<" "<<y<<" "<<kp->orientacion<<std::endl;
   while(i < 12)
   {
     j = -8;
@@ -208,7 +209,7 @@ void Descriptor(bool bUpright,KVector &kps, IplImage* & img, int & index)
       }
 
       gauss_s2 = gaussian(cx-2.0f,cy-2.0f,1.5f);
-
+      cout<<"es: "<<dx<<" "<<dy<<" "<<gauss_s2<<std::endl;
       desc[count++] = dx*gauss_s2;
       desc[count++] = dy*gauss_s2;
       desc[count++] = mdx*gauss_s2;
@@ -224,6 +225,7 @@ void Descriptor(bool bUpright,KVector &kps, IplImage* & img, int & index)
   len = sqrt(len);
   for(int i = 0; i < 64; ++i)
     desc[i] /= len;
+  return gaussian(cx-2.0f,cy-2.0f,1.5f);
 }
 
 
@@ -245,11 +247,11 @@ class Stitching
 
       matches.clear();
 
-      for(int i = 0; i < kp1.size(); i++) 
+      for(unsigned int i = 0; i < kp1.size(); i++) 
       {
         d1 = d2 = FLT_MAX; //max
 
-        for(int j = 0; j < kp2.size(); j++) 
+        for(unsigned int j = 0; j < kp2.size(); j++) 
         {
           dist = kp1[i] - kp2[j];  
 
@@ -264,6 +266,7 @@ class Stitching
             d2 = dist;
           }
         }
+        //std::cout<<"dist: "<<d1<<"  "<<d2<<" dist: "<<dist<<std::endl;
         if(d1/d2 < 0.65) 
         { 
           kp1[i].dx = match->x - kp1[i].x; 
@@ -278,7 +281,7 @@ class Stitching
 		KVector getFeatures(IplImage*& img)
 		{
 			KVector kps;
-			int index;
+			int index=0;
 			ImagenIntegral* intimg;
 			IplImage *int_img = intimg->Calcular(img);
 			bool rot=false;
@@ -291,7 +294,10 @@ class Stitching
 			fh.getKeypoints();
 
 
-			if (!kps.size()) return kps;
+
+			if (!kps.size()) {
+        std::cout<<"GG f\n";
+        return kps;}
 
 			int kpssize=(int)kps.size();
 
@@ -312,10 +318,38 @@ class Stitching
 					Descriptor(false,kps,img,index);
 				}
 			}
+      std::cout<<"nkey: "<<kpssize<<std::endl;
 			cvReleaseImage(&int_img);
 			return kps;
 		}
 
+    void seeKp(KPairVector & vec)
+    {
+      cout<<"Kp: ";
+      for (int i=0; i<vec.size();i++)
+      {
+          std::cout<<"("<<vec[i].first.x<<" , "<<vec[i].first.y<<")"<<" - "<<"("<<vec[i].second.x<<","<<vec[i].second.y<<")"<<std::endl;
+      }
+      std::cout<<std::endl;
+    }
+
+    void getFeat(IplImage*& img,KVector & kps)
+    {
+      int index=0;
+      ImagenIntegral* intimg;
+      IplImage *conv = intimg->Calcular(img);
+      bool rot=false;
+      int octaves=4;
+      int inter=4;
+      int init=2;
+      float th=0.0001f;
+      FastHessian fh(conv,kps,octaves,inter,init,th);
+      fh.getKeypoints();
+
+      Surf nuevo(conv,kps);
+      nuevo.getDescriptors(false);
+      cvReleaseImage(&conv);
+    }
 
 		void obtenerPanorama(std::string arch1, std::string arch2)
 		{
@@ -327,19 +361,22 @@ class Stitching
 			cv::Mat image2= imread(arch2);
 
 			KVector kps1,kps2;
-			kps1=getFeatures(img1);
-			kps2=getFeatures(img2);
+			getFeat(img1,kps1);
+			getFeat(img2,kps2);
+
 
 			KPairVector matches;
 			getEnc(kps1,kps2,matches);
-
+      //seeKp(matches);
 			double h[9];
 			cv::Mat _h = cv::Mat(3, 3, CV_64F, h);
 			std::vector<CvPoint2D32f> pt1, pt2;
 			cv::Mat _pt1, _pt2;
 
 			int n = (int)matches.size();
-			if( n < 4 ) return ;
+			if( n < 4 ) {
+        std::cout<<"GG\n";
+        return ;}
 
 			// Set vectors to correct size
 			pt1.resize(n);
@@ -361,10 +398,12 @@ class Stitching
 			cv::Mat hMat = cv::findHomography(_pt1_ia, _pt2_ia, _h_ia, CV_RANSAC, 5.0);
 			//Utilizar la matriz de homografía para deformar las imágenes
 			cv::Mat result; //Almacena la imagen panoramica de resultado
-			warpPerspective(image1,result,hMat,cv::Size(image1.cols+image2.cols,image1.rows));
+      warpPerspective(image2,result,hMat,cv::Size(image1.cols+image2.cols,image1.rows));
 			cv::Mat half(result,cv::Rect(0,0,image2.cols,image2.rows));
-			image2.copyTo(half); //
+			image1.copyTo(half); //
+      std::cout<<"deberia\n";
 			imshow( "Result", result );
+      cvWaitKey(0);
 
 			for (unsigned int i = 0; i < matches.size(); ++i)
 			{
@@ -377,12 +416,12 @@ class Stitching
 			}
 
 			std::cout<< "Matches: " << matches.size();
-
+/*
 			cvNamedWindow("1", CV_WINDOW_AUTOSIZE );
 			cvNamedWindow("2", CV_WINDOW_AUTOSIZE );
 			cvShowImage("1", img1);
 			cvShowImage("2",img2);
-			cvWaitKey(0);
+			cvWaitKey(0);*/
 		}	
 };
 #endif
