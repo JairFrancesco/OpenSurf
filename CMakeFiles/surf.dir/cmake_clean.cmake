@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/surf.dir/surf.o"
-  "CMakeFiles/surf.dir/utils.o"
-  "CMakeFiles/surf.dir/ipoint.o"
+  "CMakeFiles/surf.dir/surf.cpp.o"
+  "CMakeFiles/surf.dir/utils.cpp.o"
+  "CMakeFiles/surf.dir/ipoint.cpp.o"
   "libsurf.pdb"
   "libsurf.a"
 )

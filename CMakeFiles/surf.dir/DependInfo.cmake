@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/jairfrancesco/SURFImplementation/ipoint.cpp" "/home/jairfrancesco/SURFImplementation/CMakeFiles/surf.dir/ipoint.o"
-  "/home/jairfrancesco/SURFImplementation/surf.cpp" "/home/jairfrancesco/SURFImplementation/CMakeFiles/surf.dir/surf.o"
-  "/home/jairfrancesco/SURFImplementation/utils.cpp" "/home/jairfrancesco/SURFImplementation/CMakeFiles/surf.dir/utils.o"
+  "/home/jairfrancesco/OpenSurf/ipoint.cpp" "/home/jairfrancesco/OpenSurf/CMakeFiles/surf.dir/ipoint.cpp.o"
+  "/home/jairfrancesco/OpenSurf/surf.cpp" "/home/jairfrancesco/OpenSurf/CMakeFiles/surf.dir/surf.cpp.o"
+  "/home/jairfrancesco/OpenSurf/utils.cpp" "/home/jairfrancesco/OpenSurf/CMakeFiles/surf.dir/utils.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

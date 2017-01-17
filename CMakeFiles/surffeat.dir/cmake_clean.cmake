@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/surffeat.dir/main.o"
+  "CMakeFiles/surffeat.dir/main.cpp.o"
   "surffeat.pdb"
   "surffeat"
 )

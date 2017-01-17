@@ -42,10 +42,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jairfrancesco/SURFImplementation
+CMAKE_SOURCE_DIR = /home/jairfrancesco/OpenSurf
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jairfrancesco/SURFImplementation
+CMAKE_BINARY_DIR = /home/jairfrancesco/OpenSurf
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -72,9 +72,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jairfrancesco/SURFImplementation/CMakeFiles /home/jairfrancesco/SURFImplementation/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jairfrancesco/OpenSurf/CMakeFiles /home/jairfrancesco/OpenSurf/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jairfrancesco/SURFImplementation/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jairfrancesco/OpenSurf/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -127,65 +127,101 @@ surffeat/fast:
 	$(MAKE) -f CMakeFiles/surffeat.dir/build.make CMakeFiles/surffeat.dir/build
 .PHONY : surffeat/fast
 
-# target to build an object file
-ipoint.o:
-	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/ipoint.o
+ipoint.o: ipoint.cpp.o
 .PHONY : ipoint.o
 
-# target to preprocess a source file
-ipoint.i:
-	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/ipoint.i
+# target to build an object file
+ipoint.cpp.o:
+	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/ipoint.cpp.o
+.PHONY : ipoint.cpp.o
+
+ipoint.i: ipoint.cpp.i
 .PHONY : ipoint.i
 
-# target to generate assembly for a file
-ipoint.s:
-	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/ipoint.s
+# target to preprocess a source file
+ipoint.cpp.i:
+	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/ipoint.cpp.i
+.PHONY : ipoint.cpp.i
+
+ipoint.s: ipoint.cpp.s
 .PHONY : ipoint.s
 
-# target to build an object file
-main.o:
-	$(MAKE) -f CMakeFiles/surffeat.dir/build.make CMakeFiles/surffeat.dir/main.o
+# target to generate assembly for a file
+ipoint.cpp.s:
+	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/ipoint.cpp.s
+.PHONY : ipoint.cpp.s
+
+main.o: main.cpp.o
 .PHONY : main.o
 
-# target to preprocess a source file
-main.i:
-	$(MAKE) -f CMakeFiles/surffeat.dir/build.make CMakeFiles/surffeat.dir/main.i
+# target to build an object file
+main.cpp.o:
+	$(MAKE) -f CMakeFiles/surffeat.dir/build.make CMakeFiles/surffeat.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
 .PHONY : main.i
 
-# target to generate assembly for a file
-main.s:
-	$(MAKE) -f CMakeFiles/surffeat.dir/build.make CMakeFiles/surffeat.dir/main.s
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) -f CMakeFiles/surffeat.dir/build.make CMakeFiles/surffeat.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
 .PHONY : main.s
 
-# target to build an object file
-surf.o:
-	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/surf.o
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) -f CMakeFiles/surffeat.dir/build.make CMakeFiles/surffeat.dir/main.cpp.s
+.PHONY : main.cpp.s
+
+surf.o: surf.cpp.o
 .PHONY : surf.o
 
-# target to preprocess a source file
-surf.i:
-	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/surf.i
+# target to build an object file
+surf.cpp.o:
+	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/surf.cpp.o
+.PHONY : surf.cpp.o
+
+surf.i: surf.cpp.i
 .PHONY : surf.i
 
-# target to generate assembly for a file
-surf.s:
-	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/surf.s
+# target to preprocess a source file
+surf.cpp.i:
+	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/surf.cpp.i
+.PHONY : surf.cpp.i
+
+surf.s: surf.cpp.s
 .PHONY : surf.s
 
-# target to build an object file
-utils.o:
-	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/utils.o
+# target to generate assembly for a file
+surf.cpp.s:
+	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/surf.cpp.s
+.PHONY : surf.cpp.s
+
+utils.o: utils.cpp.o
 .PHONY : utils.o
 
-# target to preprocess a source file
-utils.i:
-	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/utils.i
+# target to build an object file
+utils.cpp.o:
+	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/utils.cpp.o
+.PHONY : utils.cpp.o
+
+utils.i: utils.cpp.i
 .PHONY : utils.i
 
-# target to generate assembly for a file
-utils.s:
-	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/utils.s
+# target to preprocess a source file
+utils.cpp.i:
+	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/utils.cpp.i
+.PHONY : utils.cpp.i
+
+utils.s: utils.cpp.s
 .PHONY : utils.s
+
+# target to generate assembly for a file
+utils.cpp.s:
+	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/utils.cpp.s
+.PHONY : utils.cpp.s
 
 # Help Target
 help:

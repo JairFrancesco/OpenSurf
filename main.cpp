@@ -97,7 +97,7 @@ int maino()
 int main()
 {
   std::cout<<"llego"<<std::endl;
-  cv::Mat image1= imread("panorama_image1.jpg");
+  //cv::Mat image1= imread("panorama_image1.jpg");
 
   //Stitching nuevo;
   //nuevo.obtenerPanorama("panorama_image1.jpg","panorama_image2.jpg");

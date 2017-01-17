@@ -1,2 +1,2 @@
-/home/jairfrancesco/SURFImplementation/CMakeFiles/surf.dir
-/home/jairfrancesco/SURFImplementation/CMakeFiles/surffeat.dir
+/home/jairfrancesco/OpenSurf/CMakeFiles/surf.dir
+/home/jairfrancesco/OpenSurf/CMakeFiles/surffeat.dir

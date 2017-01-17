@@ -72,10 +72,10 @@ IplImage *getGray(const IplImage *img)
 
 //-------------------------------------------------------
 
-//! Draw all the Ipoints in the provided vector
-void drawIpoints(IplImage *img, vector<Ipoint> &ipts, int tailSize)
+//! Draw all the Keypoints in the provided vector
+void drawKeypoints(IplImage *img, vector<Keypoint> &ipts, int tailSize)
 {
-  Ipoint *ipt;
+  Keypoint *ipt;
   float s, o;
   int r1, c1, r2, c2, lap;
 
@@ -83,7 +83,7 @@ void drawIpoints(IplImage *img, vector<Ipoint> &ipts, int tailSize)
   {
     ipt = &ipts.at(i);
     s = (2.5f * ipt->scale);
-    o = ipt->orientation;
+    o = ipt->orientacion;
     lap = ipt->laplacian;
     r1 = fRound(ipt->y);
     c1 = fRound(ipt->x);
@@ -108,7 +108,7 @@ void drawIpoints(IplImage *img, vector<Ipoint> &ipts, int tailSize)
       cvCircle(img, cvPoint(c1,r1), fRound(s), cvScalar(0, 255, 0),1);
     }
 
-    // Draw motion from ipoint dx and dy
+    // Draw motion from Keypoint dx and dy
     if (tailSize)
     {
       cvLine(img, cvPoint(c1,r1),
@@ -121,13 +121,13 @@ void drawIpoints(IplImage *img, vector<Ipoint> &ipts, int tailSize)
 //-------------------------------------------------------
 
 //! Draw a single feature on the image
-void drawIpoint(IplImage *img, Ipoint &ipt, int tailSize)
+void drawKeypoint(IplImage *img, Keypoint &ipt, int tailSize)
 {
   float s, o;
   int r1, c1, r2, c2, lap;
 
   s = (2.5f * ipt.scale);
-  o = ipt.orientation;
+  o = ipt.orientacion;
   lap = ipt.laplacian;
   r1 = fRound(ipt.y);
   c1 = fRound(ipt.x);
@@ -151,7 +151,7 @@ void drawIpoint(IplImage *img, Ipoint &ipt, int tailSize)
     cvCircle(img, cvPoint(c1,r1), fRound(s), cvScalar(0, 0, 255),1);
   }
 
-  // Draw motion from ipoint dx and dy
+  // Draw motion from Keypoint dx and dy
   if (tailSize)
   {
     cvLine(img, cvPoint(c1,r1),
@@ -163,13 +163,13 @@ void drawIpoint(IplImage *img, Ipoint &ipt, int tailSize)
 //-------------------------------------------------------
 
 //! Draw a single feature on the image
-void drawPoint(IplImage *img, Ipoint &ipt)
+void drawPoint(IplImage *img, Keypoint &ipt)
 {
   float s, o;
   int r1, c1;
 
   s = 3;
-  o = ipt.orientation;
+  o = ipt.orientacion;
   r1 = fRound(ipt.y);
   c1 = fRound(ipt.x);
 
@@ -181,7 +181,7 @@ void drawPoint(IplImage *img, Ipoint &ipt)
 //-------------------------------------------------------
 
 //! Draw a single feature on the image
-void drawPoints(IplImage *img, vector<Ipoint> &ipts)
+void drawPoints(IplImage *img, vector<Keypoint> &ipts)
 {
   float s, o;
   int r1, c1;
@@ -189,7 +189,7 @@ void drawPoints(IplImage *img, vector<Ipoint> &ipts)
   for(unsigned int i = 0; i < ipts.size(); i++) 
   {
     s = 3;
-    o = ipts[i].orientation;
+    o = ipts[i].orientacion;
     r1 = fRound(ipts[i].y);
     c1 = fRound(ipts[i].x);
 
@@ -200,10 +200,10 @@ void drawPoints(IplImage *img, vector<Ipoint> &ipts)
 
 //-------------------------------------------------------
 
-//! Draw descriptor windows around Ipoints in the provided vector
-void drawWindows(IplImage *img, vector<Ipoint> &ipts)
+//! Draw descriptor windows around Keypoints in the provided vector
+void drawWindows(IplImage *img, vector<Keypoint> &ipts)
 {
-  Ipoint *ipt;
+  Keypoint *ipt;
   float s, o, cd, sd;
   int x, y;
   CvPoint2D32f src[4];
@@ -212,7 +212,7 @@ void drawWindows(IplImage *img, vector<Ipoint> &ipts)
   {
     ipt = &ipts.at(i);
     s = (10 * ipt->scale);
-    o = ipt->orientation;
+    o = ipt->orientacion;
     y = fRound(ipt->y);
     x = fRound(ipt->x);
     cd = cos(o);
@@ -276,7 +276,7 @@ void drawFPS(IplImage *img)
 //-------------------------------------------------------
 
 //! Save the SURF features to file
-void saveSurf(char *filename, vector<Ipoint> &ipts)
+void saveSurf(char *filename, vector<Keypoint> &ipts)
 {
   ofstream outfile(filename);
 
@@ -290,7 +290,7 @@ void saveSurf(char *filename, vector<Ipoint> &ipts)
     outfile << ipts.at(i).scale << "  ";
     outfile << ipts.at(i).x << " ";
     outfile << ipts.at(i).y << " ";
-    outfile << ipts.at(i).orientation << " ";
+    outfile << ipts.at(i).orientacion << " ";
     outfile << ipts.at(i).laplacian << " ";
     outfile << ipts.at(i).scale << " ";
     for(int j=0; j<64; j++)
@@ -305,7 +305,7 @@ void saveSurf(char *filename, vector<Ipoint> &ipts)
 //-------------------------------------------------------
 
 //! Load the SURF features from file
-void loadSurf(char *filename, vector<Ipoint> &ipts)
+void loadSurf(char *filename, vector<Keypoint> &ipts)
 {
   int descriptorLength, count;
   ifstream infile(filename);
@@ -313,20 +313,20 @@ void loadSurf(char *filename, vector<Ipoint> &ipts)
   // clear the ipts vector first
   ipts.clear();
 
-  // read descriptor length/number of ipoints
+  // read descriptor length/number of Keypoints
   infile >> descriptorLength;
   infile >> count;
 
-  // for each ipoint
+  // for each Keypoint
   for (int i = 0; i < count; i++) 
   {
-    Ipoint ipt;
+    Keypoint ipt;
 
     // read vals
     infile >> ipt.scale; 
     infile >> ipt.x;
     infile >> ipt.y;
-    infile >> ipt.orientation;
+    infile >> ipt.orientacion;
     infile >> ipt.laplacian;
     infile >> ipt.scale;
 

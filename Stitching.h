@@ -4,7 +4,8 @@
 #include <iostream>
 
 #include <opencv/cv.h>
-#include <opencv/highgui.h>
+#include "opencv2/highgui.hpp"
+#include "opencv2/calib3d.hpp"
 #include "opencv2/imgproc.hpp"
 
 #include "ImagenIntegral.h"
@@ -13,6 +14,8 @@
 #include "Keypoint.h"
 #include <vector>
 #include <math.h>
+
+using namespace cv;
 
 const float pi = 3.14159f;
 const double gauss25 [7][7] = {
@@ -293,8 +296,8 @@ class Stitching
 			kps1=getFeatures(img1);
 			kps2=getFeatures(img2);
 
-			KPairVector pairs;
-			getEnc(kps1,kps2,pairs);
+			KPairVector matches;
+			getEnc(kps1,kps2,matches);
 
 			double h[9];
 			cv::Mat _h = cv::Mat(3, 3, CV_64F, h);

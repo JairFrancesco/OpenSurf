@@ -2,8 +2,7 @@
 #define UTILS_H
 
 #include <opencv/cv.h>
-#include "ipoint.h"
-
+#include "Keypoint.h"
 #include <vector>
 
 
@@ -20,28 +19,28 @@ void showImage(char *title,const IplImage *img);
 IplImage* getGray(const IplImage *img);
 
 //! Draw a single feature on the image
-void drawIpoint(IplImage *img, Ipoint &ipt, int tailSize = 0);
+void drawKeypoint(IplImage *img, Keypoint &ipt, int tailSize = 0);
 
 //! Draw all the Ipoints in the provided vector
-void drawIpoints(IplImage *img, std::vector<Ipoint> &ipts, int tailSize = 0);
+void drawKeypoints(IplImage *img, std::vector<Keypoint> &ipts, int tailSize = 0);
 
 //! Draw descriptor windows around Ipoints in the provided vector
-void drawWindows(IplImage *img, std::vector<Ipoint> &ipts);
+void drawWindows(IplImage *img, std::vector<Keypoint> &ipts);
 
 // Draw the FPS figure on the image (requires at least 2 calls)
 void drawFPS(IplImage *img);
 
 //! Draw a Point at feature location
-void drawPoint(IplImage *img, Ipoint &ipt);
+void drawPoint(IplImage *img, Keypoint &ipt);
 
 //! Draw a Point at all features
-void drawPoints(IplImage *img, std::vector<Ipoint> &ipts);
+void drawPoints(IplImage *img, std::vector<Keypoint> &ipts);
 
 //! Save the SURF features to file
-void saveSurf(char *filename, std::vector<Ipoint> &ipts);
+void saveSurf(char *filename, std::vector<Keypoint> &ipts);
 
 //! Load the SURF features from file
-void loadSurf(char *filename, std::vector<Ipoint> &ipts);
+void loadSurf(char *filename, std::vector<Keypoint> &ipts);
 
 //! Round float to nearest integer
 inline int fRound(float flt)

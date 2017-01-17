@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jairfrancesco/SURFImplementation
+CMAKE_SOURCE_DIR = /home/jairfrancesco/OpenSurf
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jairfrancesco/SURFImplementation
+CMAKE_BINARY_DIR = /home/jairfrancesco/OpenSurf
 
 # Include any dependencies generated for this target.
 include CMakeFiles/surf.dir/depend.make
@@ -49,87 +49,87 @@ include CMakeFiles/surf.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/surf.dir/flags.make
 
-CMakeFiles/surf.dir/surf.o: CMakeFiles/surf.dir/flags.make
-CMakeFiles/surf.dir/surf.o: surf.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jairfrancesco/SURFImplementation/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/surf.dir/surf.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/surf.dir/surf.o -c /home/jairfrancesco/SURFImplementation/surf.cpp
+CMakeFiles/surf.dir/surf.cpp.o: CMakeFiles/surf.dir/flags.make
+CMakeFiles/surf.dir/surf.cpp.o: surf.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jairfrancesco/OpenSurf/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/surf.dir/surf.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/surf.dir/surf.cpp.o -c /home/jairfrancesco/OpenSurf/surf.cpp
 
-CMakeFiles/surf.dir/surf.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/surf.dir/surf.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jairfrancesco/SURFImplementation/surf.cpp > CMakeFiles/surf.dir/surf.i
+CMakeFiles/surf.dir/surf.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/surf.dir/surf.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jairfrancesco/OpenSurf/surf.cpp > CMakeFiles/surf.dir/surf.cpp.i
 
-CMakeFiles/surf.dir/surf.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/surf.dir/surf.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jairfrancesco/SURFImplementation/surf.cpp -o CMakeFiles/surf.dir/surf.s
+CMakeFiles/surf.dir/surf.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/surf.dir/surf.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jairfrancesco/OpenSurf/surf.cpp -o CMakeFiles/surf.dir/surf.cpp.s
 
-CMakeFiles/surf.dir/surf.o.requires:
-.PHONY : CMakeFiles/surf.dir/surf.o.requires
+CMakeFiles/surf.dir/surf.cpp.o.requires:
+.PHONY : CMakeFiles/surf.dir/surf.cpp.o.requires
 
-CMakeFiles/surf.dir/surf.o.provides: CMakeFiles/surf.dir/surf.o.requires
-	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/surf.o.provides.build
-.PHONY : CMakeFiles/surf.dir/surf.o.provides
+CMakeFiles/surf.dir/surf.cpp.o.provides: CMakeFiles/surf.dir/surf.cpp.o.requires
+	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/surf.cpp.o.provides.build
+.PHONY : CMakeFiles/surf.dir/surf.cpp.o.provides
 
-CMakeFiles/surf.dir/surf.o.provides.build: CMakeFiles/surf.dir/surf.o
+CMakeFiles/surf.dir/surf.cpp.o.provides.build: CMakeFiles/surf.dir/surf.cpp.o
 
-CMakeFiles/surf.dir/utils.o: CMakeFiles/surf.dir/flags.make
-CMakeFiles/surf.dir/utils.o: utils.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jairfrancesco/SURFImplementation/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/surf.dir/utils.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/surf.dir/utils.o -c /home/jairfrancesco/SURFImplementation/utils.cpp
+CMakeFiles/surf.dir/utils.cpp.o: CMakeFiles/surf.dir/flags.make
+CMakeFiles/surf.dir/utils.cpp.o: utils.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jairfrancesco/OpenSurf/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/surf.dir/utils.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/surf.dir/utils.cpp.o -c /home/jairfrancesco/OpenSurf/utils.cpp
 
-CMakeFiles/surf.dir/utils.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/surf.dir/utils.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jairfrancesco/SURFImplementation/utils.cpp > CMakeFiles/surf.dir/utils.i
+CMakeFiles/surf.dir/utils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/surf.dir/utils.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jairfrancesco/OpenSurf/utils.cpp > CMakeFiles/surf.dir/utils.cpp.i
 
-CMakeFiles/surf.dir/utils.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/surf.dir/utils.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jairfrancesco/SURFImplementation/utils.cpp -o CMakeFiles/surf.dir/utils.s
+CMakeFiles/surf.dir/utils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/surf.dir/utils.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jairfrancesco/OpenSurf/utils.cpp -o CMakeFiles/surf.dir/utils.cpp.s
 
-CMakeFiles/surf.dir/utils.o.requires:
-.PHONY : CMakeFiles/surf.dir/utils.o.requires
+CMakeFiles/surf.dir/utils.cpp.o.requires:
+.PHONY : CMakeFiles/surf.dir/utils.cpp.o.requires
 
-CMakeFiles/surf.dir/utils.o.provides: CMakeFiles/surf.dir/utils.o.requires
-	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/utils.o.provides.build
-.PHONY : CMakeFiles/surf.dir/utils.o.provides
+CMakeFiles/surf.dir/utils.cpp.o.provides: CMakeFiles/surf.dir/utils.cpp.o.requires
+	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/utils.cpp.o.provides.build
+.PHONY : CMakeFiles/surf.dir/utils.cpp.o.provides
 
-CMakeFiles/surf.dir/utils.o.provides.build: CMakeFiles/surf.dir/utils.o
+CMakeFiles/surf.dir/utils.cpp.o.provides.build: CMakeFiles/surf.dir/utils.cpp.o
 
-CMakeFiles/surf.dir/ipoint.o: CMakeFiles/surf.dir/flags.make
-CMakeFiles/surf.dir/ipoint.o: ipoint.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jairfrancesco/SURFImplementation/CMakeFiles $(CMAKE_PROGRESS_3)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/surf.dir/ipoint.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/surf.dir/ipoint.o -c /home/jairfrancesco/SURFImplementation/ipoint.cpp
+CMakeFiles/surf.dir/ipoint.cpp.o: CMakeFiles/surf.dir/flags.make
+CMakeFiles/surf.dir/ipoint.cpp.o: ipoint.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jairfrancesco/OpenSurf/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/surf.dir/ipoint.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/surf.dir/ipoint.cpp.o -c /home/jairfrancesco/OpenSurf/ipoint.cpp
 
-CMakeFiles/surf.dir/ipoint.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/surf.dir/ipoint.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jairfrancesco/SURFImplementation/ipoint.cpp > CMakeFiles/surf.dir/ipoint.i
+CMakeFiles/surf.dir/ipoint.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/surf.dir/ipoint.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jairfrancesco/OpenSurf/ipoint.cpp > CMakeFiles/surf.dir/ipoint.cpp.i
 
-CMakeFiles/surf.dir/ipoint.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/surf.dir/ipoint.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jairfrancesco/SURFImplementation/ipoint.cpp -o CMakeFiles/surf.dir/ipoint.s
+CMakeFiles/surf.dir/ipoint.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/surf.dir/ipoint.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jairfrancesco/OpenSurf/ipoint.cpp -o CMakeFiles/surf.dir/ipoint.cpp.s
 
-CMakeFiles/surf.dir/ipoint.o.requires:
-.PHONY : CMakeFiles/surf.dir/ipoint.o.requires
+CMakeFiles/surf.dir/ipoint.cpp.o.requires:
+.PHONY : CMakeFiles/surf.dir/ipoint.cpp.o.requires
 
-CMakeFiles/surf.dir/ipoint.o.provides: CMakeFiles/surf.dir/ipoint.o.requires
-	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/ipoint.o.provides.build
-.PHONY : CMakeFiles/surf.dir/ipoint.o.provides
+CMakeFiles/surf.dir/ipoint.cpp.o.provides: CMakeFiles/surf.dir/ipoint.cpp.o.requires
+	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/ipoint.cpp.o.provides.build
+.PHONY : CMakeFiles/surf.dir/ipoint.cpp.o.provides
 
-CMakeFiles/surf.dir/ipoint.o.provides.build: CMakeFiles/surf.dir/ipoint.o
+CMakeFiles/surf.dir/ipoint.cpp.o.provides.build: CMakeFiles/surf.dir/ipoint.cpp.o
 
 # Object files for target surf
 surf_OBJECTS = \
-"CMakeFiles/surf.dir/surf.o" \
-"CMakeFiles/surf.dir/utils.o" \
-"CMakeFiles/surf.dir/ipoint.o"
+"CMakeFiles/surf.dir/surf.cpp.o" \
+"CMakeFiles/surf.dir/utils.cpp.o" \
+"CMakeFiles/surf.dir/ipoint.cpp.o"
 
 # External object files for target surf
 surf_EXTERNAL_OBJECTS =
 
-libsurf.a: CMakeFiles/surf.dir/surf.o
-libsurf.a: CMakeFiles/surf.dir/utils.o
-libsurf.a: CMakeFiles/surf.dir/ipoint.o
+libsurf.a: CMakeFiles/surf.dir/surf.cpp.o
+libsurf.a: CMakeFiles/surf.dir/utils.cpp.o
+libsurf.a: CMakeFiles/surf.dir/ipoint.cpp.o
 libsurf.a: CMakeFiles/surf.dir/build.make
 libsurf.a: CMakeFiles/surf.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX static library libsurf.a"
@@ -140,9 +140,9 @@ libsurf.a: CMakeFiles/surf.dir/link.txt
 CMakeFiles/surf.dir/build: libsurf.a
 .PHONY : CMakeFiles/surf.dir/build
 
-CMakeFiles/surf.dir/requires: CMakeFiles/surf.dir/surf.o.requires
-CMakeFiles/surf.dir/requires: CMakeFiles/surf.dir/utils.o.requires
-CMakeFiles/surf.dir/requires: CMakeFiles/surf.dir/ipoint.o.requires
+CMakeFiles/surf.dir/requires: CMakeFiles/surf.dir/surf.cpp.o.requires
+CMakeFiles/surf.dir/requires: CMakeFiles/surf.dir/utils.cpp.o.requires
+CMakeFiles/surf.dir/requires: CMakeFiles/surf.dir/ipoint.cpp.o.requires
 .PHONY : CMakeFiles/surf.dir/requires
 
 CMakeFiles/surf.dir/clean:
@@ -150,6 +150,6 @@ CMakeFiles/surf.dir/clean:
 .PHONY : CMakeFiles/surf.dir/clean
 
 CMakeFiles/surf.dir/depend:
-	cd /home/jairfrancesco/SURFImplementation && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jairfrancesco/SURFImplementation /home/jairfrancesco/SURFImplementation /home/jairfrancesco/SURFImplementation /home/jairfrancesco/SURFImplementation /home/jairfrancesco/SURFImplementation/CMakeFiles/surf.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jairfrancesco/OpenSurf && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jairfrancesco/OpenSurf /home/jairfrancesco/OpenSurf /home/jairfrancesco/OpenSurf /home/jairfrancesco/OpenSurf /home/jairfrancesco/OpenSurf/CMakeFiles/surf.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/surf.dir/depend
 
