@@ -20,7 +20,7 @@ const double gauss25 [7][7] = {
 //-------------------------------------------------------
 
 //! Constructor
-Surf::Surf(IplImage *img, IpVec &ipts)
+Surf::Surf(IplImage *img, KVector &ipts)
 : ipts(ipts)
 {
   this->img = img;

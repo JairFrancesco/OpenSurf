@@ -44,7 +44,7 @@ class Surf {
     //! imagen integral donde los Keypoints han sido detectados
     IplImage *img;
     //! Keypoints vector
-    IpVec &ipts;
+    KVector &ipts;
     //! indice de actual Keypoint en el vector
     int index;
 };
