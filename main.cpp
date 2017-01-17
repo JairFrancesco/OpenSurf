@@ -97,6 +97,8 @@ int maino()
 int main()
 {
   std::cout<<"llego"<<std::endl;
+  Stitching* stitch = new Stitching();
+  stitch->obtenerPanorama("panorama_image1.jpg", "panorama_image2.jpg");
   //cv::Mat image1= imread("panorama_image1.jpg");
 
   //Stitching nuevo;

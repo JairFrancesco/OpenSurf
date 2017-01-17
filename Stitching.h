@@ -238,6 +238,40 @@ class Stitching
 		Stitching(){}
 		~Stitching(){}
 
+    void getEnc(KVector &kp1, KVector &kp2, KPairVector &matches)
+    {
+      float dist, d1, d2;
+      Keypoint *match;
+
+      matches.clear();
+
+      for(int i = 0; i < kp1.size(); i++) 
+      {
+        d1 = d2 = FLT_MAX; //max
+
+        for(int j = 0; j < kp2.size(); j++) 
+        {
+          dist = kp1[i] - kp2[j];  
+
+          if(dist<d1)
+          {
+            d2 = d1;
+            d1 = dist;
+            match = &kp2[j];
+          }
+          else if(dist<d2)
+          {
+            d2 = dist;
+          }
+        }
+        if(d1/d2 < 0.65) 
+        { 
+          kp1[i].dx = match->x - kp1[i].x; 
+          kp1[i].dy = match->y - kp1[i].y;
+          matches.push_back(std::make_pair(kp1[i], *match));
+        }
+      }
+    }
 
 
 
@@ -283,13 +317,13 @@ class Stitching
 		}
 
 
-		void obtenerPanorama(char* arch1, char* arch2)
+		void obtenerPanorama(std::string arch1, std::string arch2)
 		{
 			IplImage *img1, *img2;
-			img1 = cvLoadImage(arch1);
-			img2 = cvLoadImage(arch2);
+			img1 = cvLoadImage(arch1.c_str());
+			img2 = cvLoadImage(arch2.c_str());
 
-			cv::Mat image1= imread("panorama_image1.jpg");
+			cv::Mat image1= imread(arch1);
 			cv::Mat image2= imread(arch2);
 
 			KVector kps1,kps2;

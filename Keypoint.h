@@ -43,40 +43,4 @@ class Keypoint
 };
 
 
-void getEnc(KVector &kp1, KVector &kp2, KPairVector &matches)
-{
-  float dist, d1, d2;
-  Keypoint *match;
-
-  matches.clear();
-
-  for(int i = 0; i < kp1.size(); i++) 
-  {
-    d1 = d2 = FLT_MAX; //max
-
-    for(int j = 0; j < kp2.size(); j++) 
-    {
-      dist = kp1[i] - kp2[j];  
-
-      if(dist<d1)
-      {
-        d2 = d1;
-        d1 = dist;
-        match = &kp2[j];
-      }
-      else if(dist<d2)
-      {
-        d2 = dist;
-      }
-    }
-    if(d1/d2 < 0.65) 
-    { 
-      kp1[i].dx = match->x - kp1[i].x; 
-      kp1[i].dy = match->y - kp1[i].y;
-      matches.push_back(std::make_pair(kp1[i], *match));
-    }
-  }
-}
-
-
 #endif
