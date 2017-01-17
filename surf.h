@@ -3,7 +3,7 @@
 #define SURF_H
 
 #include <opencv/cv.h>
-#include "ipoint.h"
+#include "Keypoint.h"
 //#include "integral.h"
 #include "ImagenIntegral.h"
 
@@ -14,7 +14,7 @@ class Surf {
   public:
     
     // img es una imagen integral
-    Surf(IplImage *img, std::vector<Ipoint> &ipts);
+    Surf(IplImage *img, std::vector<Keypoint> &ipts);
 
     //!Describir todas las caracteristicas en el vector dado
     void getDescriptors(bool bUpright = false);
@@ -23,7 +23,7 @@ class Surf {
     
     //---------------- Private Functions -----------------//
 
-    //! Assign the current Ipoint an orientation
+    //! Assign the current Keypoint an orientation
     void getOrientation();
     
     //! Get the descriptor. See Agrawal ECCV 08
@@ -41,11 +41,11 @@ class Surf {
     float getAngle(float X, float Y);
 
 
-    //! imagen integral donde los Ipoints han sido detectados
+    //! imagen integral donde los Keypoints han sido detectados
     IplImage *img;
-    //! Ipoints vector
+    //! Keypoints vector
     IpVec &ipts;
-    //! indice de actual Ipoint en el vector
+    //! indice de actual Keypoint en el vector
     int index;
 };
 

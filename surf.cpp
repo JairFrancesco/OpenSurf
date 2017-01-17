@@ -31,7 +31,7 @@ Surf::Surf(IplImage *img, IpVec &ipts)
 //! Describe all features in the supplied vector
 void Surf::getDescriptors(bool upright)
 {
-  // Check there are Ipoints to be described
+  // Check there are Keypoints to be described
   if (!ipts.size()) return;
 
   // Get the size of the vector for fixed loop bounds
@@ -42,7 +42,7 @@ void Surf::getDescriptors(bool upright)
     // U-SURF loop just gets descriptors
     for (int i = 0; i < ipts_size; ++i)
     {
-      // Set the Ipoint to be described
+      // Set the Keypoint to be described
       index = i;
 
       // Extract upright (i.e. not rotation invariant) descriptors
@@ -54,7 +54,7 @@ void Surf::getDescriptors(bool upright)
     // Main SURF-64 loop assigns orientations and gets descriptors
     for (int i = 0; i < ipts_size; ++i)
     {
-      // Set the Ipoint to be described
+      // Set the Keypoint to be described
       index = i;
 
       // Assign Orientations and extract rotation invariant descriptors
@@ -66,10 +66,10 @@ void Surf::getDescriptors(bool upright)
 
 //-------------------------------------------------------
 
-//! Assign the supplied Ipoint an orientation
+//! Assign the supplied Keypoint an orientation
 void Surf::getOrientation()
 {
-  Ipoint *ipt = &ipts[index];
+  Keypoint *ipt = &ipts[index];
   float gauss = 0.f, scale = ipt->scale;
   const int s = fRound(scale), r = fRound(ipt->y), c = fRound(ipt->x);
   std::vector<float> resX(109), resY(109), Ang(109);
@@ -131,7 +131,7 @@ void Surf::getOrientation()
   }
 
   // assign orientation of the dominant response vector
-  ipt->orientation = orientation;
+  ipt->orientacion = orientation;
 }
 
 //-------------------------------------------------------
@@ -147,7 +147,7 @@ void Surf::getDescriptor(bool bUpright)
   float rx = 0.f, ry = 0.f, rrx = 0.f, rry = 0.f, len = 0.f;
   float cx = -0.5f, cy = 0.f; //Subregion centers for the 4x4 gaussian weighting
 
-  Ipoint *ipt = &ipts[index];
+  Keypoint *ipt = &ipts[index];
   scale = ipt->scale;
   x = fRound(ipt->x);
   y = fRound(ipt->y);  
@@ -160,8 +160,8 @@ void Surf::getDescriptor(bool bUpright)
   }
   else
   {
-    co = cos(ipt->orientation);
-    si = sin(ipt->orientation);
+    co = cos(ipt->orientacion);
+    si = sin(ipt->orientacion);
   }
 
   i = -8;

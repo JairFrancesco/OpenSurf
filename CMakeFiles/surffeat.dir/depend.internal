@@ -3,6 +3,7 @@
 
 CMakeFiles/surffeat.dir/main.o
  /home/jairfrancesco/SURFImplementation/ImagenIntegral.h
+ /home/jairfrancesco/SURFImplementation/Keypoint.h
  /home/jairfrancesco/SURFImplementation/fasthessian.h
  /home/jairfrancesco/SURFImplementation/ipoint.h
  /home/jairfrancesco/SURFImplementation/main.cpp

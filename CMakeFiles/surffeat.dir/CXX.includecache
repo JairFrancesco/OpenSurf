@@ -14,6 +14,14 @@ algorithm
 utils.h
 /home/jairfrancesco/SURFImplementation/utils.h
 
+/home/jairfrancesco/SURFImplementation/Keypoint.h
+opencv2/calib3d.hpp
+-
+vector
+-
+math.h
+-
+
 /home/jairfrancesco/SURFImplementation/fasthessian.h
 opencv/cv.h
 -
@@ -73,8 +81,8 @@ fasthessian.h
 /home/jairfrancesco/SURFImplementation/fasthessian.h
 surf.h
 /home/jairfrancesco/SURFImplementation/surf.h
-ipoint.h
-/home/jairfrancesco/SURFImplementation/ipoint.h
+Keypoint.h
+/home/jairfrancesco/SURFImplementation/Keypoint.h
 utils.h
 /home/jairfrancesco/SURFImplementation/utils.h
 

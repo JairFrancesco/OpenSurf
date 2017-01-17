@@ -5,6 +5,7 @@ CMakeFiles/surf.dir/ipoint.o: ipoint.cpp
 CMakeFiles/surf.dir/ipoint.o: ipoint.h
 
 CMakeFiles/surf.dir/surf.o: ImagenIntegral.h
+CMakeFiles/surf.dir/surf.o: Keypoint.h
 CMakeFiles/surf.dir/surf.o: ipoint.h
 CMakeFiles/surf.dir/surf.o: surf.cpp
 CMakeFiles/surf.dir/surf.o: surf.h
