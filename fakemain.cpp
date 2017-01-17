@@ -1,8 +1,189 @@
+#include <iostream>
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
+#include <opencv2/calib3d.hpp>
 #include "integral.h"
+
 #include "fasthessian.h"
+
+#include <vector>
 #include <math.h>
+
+//-------------------------------------------------------
+/*
+class Ipoint; // Pre-declaration
+typedef std::vector<Ipoint> IpVec;
+typedef std::vector<std::pair<Ipoint, Ipoint> > IpPairVec;
+
+//-------------------------------------------------------
+
+//! Ipoint operations
+void getMatches(IpVec &ipts1, IpVec &ipts2, IpPairVec &matches);
+int translateCorners(IpPairVec &matches, const CvPoint src_corners[4], CvPoint dst_corners[4]);
+
+void getMatches(IpVec &ipts1, IpVec &ipts2, IpPairVec &matches)
+{
+  float dist, d1, d2;
+  Ipoint *match;
+
+  matches.clear();
+
+  for(unsigned int i = 0; i < ipts1.size(); i++) 
+  {
+    d1 = d2 = FLT_MAX;
+
+    for(unsigned int j = 0; j < ipts2.size(); j++) 
+    {
+      dist = ipts1[i] - ipts2[j];  
+
+      if(dist<d1) // if this feature matches better than current best
+      {
+        d2 = d1;
+        d1 = dist;
+        match = &ipts2[j];
+      }
+      else if(dist<d2) // this feature matches better than second best
+      {
+        d2 = dist;
+      }
+    }
+
+    // If match has a d1:d2 ratio < 0.65 ipoints are a match
+    if(d1/d2 < 0.65) 
+    { 
+      // Store the change in position
+      ipts1[i].dx = match->x - ipts1[i].x; 
+      ipts1[i].dy = match->y - ipts1[i].y;
+      matches.push_back(std::make_pair(ipts1[i], *match));
+    }
+  }
+}
+
+int translateCorners(IpPairVec &matches, const CvPoint src_corners[4], CvPoint dst_corners[4])
+{
+  double h[9];
+  cv::Mat _h = cv::Mat(3, 3, CV_64F, h);
+  std::vector<CvPoint2D32f> pt1, pt2;
+  cv::Mat _pt1, _pt2;
+  
+  int n = (int)matches.size();
+  if( n < 4 ) return 0;
+
+  // Set vectors to correct size
+  pt1.resize(n);
+  pt2.resize(n);
+
+  // Copy Ipoints from match vector into cvPoint vectors
+  for(int i = 0; i < n; i++ )
+  {
+    pt1[i] = cvPoint2D32f(matches[i].second.x, matches[i].second.y);
+    pt2[i] = cvPoint2D32f(matches[i].first.x, matches[i].first.y);
+  }
+  _pt1 = cv::Mat(1, n, CV_32FC2, &pt1[0] );
+  _pt2 = cv::Mat(1, n, CV_32FC2, &pt2[0] );
+
+  cv::InputArray _pt1_ia(_pt1);
+  cv::InputArray _pt2_ia(_pt2);
+  cv::OutputArray _h_ia(_h);
+
+  cv::Mat hMat = cv::findHomography(_pt1_ia, _pt2_ia, _h_ia, CV_RANSAC, 5.0);
+   // Find the homography (transformation) between the two sets of points
+  if(hMat.empty())  // this line requires opencv 1.1
+    return 0;
+
+  // Translate src_corners to dst_corners using homography
+  for(int i = 0; i < 4; i++ )
+  {
+    double x = src_corners[i].x, y = src_corners[i].y;
+    double Z = 1./(h[6]*x + h[7]*y + h[8]);
+    double X = (h[0]*x + h[1]*y + h[2])*Z;
+    double Y = (h[3]*x + h[4]*y + h[5])*Z;
+    dst_corners[i] = cvPoint(cvRound(X), cvRound(Y));
+  }
+}
+
+
+//-------------------------------------------------------
+
+class Ipoint {
+
+public:
+
+  //! Destructor
+  ~Ipoint() {};
+
+  //! Constructor
+  Ipoint() : orientation(0) {};
+
+  //! Gets the distance in descriptor space between Ipoints
+  float operator-(const Ipoint &rhs)
+  {
+    float sum=0.f;
+    for(int i=0; i < 64; ++i)
+      sum += (this->descriptor[i] - rhs.descriptor[i])*(this->descriptor[i] - rhs.descriptor[i]);
+    return sqrt(sum);
+  };
+
+  //! Coordinates of the detected interest point
+  float x, y;
+
+  //! Detected scale
+  float scale;
+
+  //! Orientation measured anti-clockwise from +ve x-axis
+  float orientation;
+
+  //! Sign of laplacian for fast matching purposes
+  int laplacian;
+
+  //! Vector of descriptor components
+  float descriptor[64];
+
+  //! Placeholds for point motion (can be used for frame to frame motion analysis)
+  float dx, dy;
+
+  //! Used to store cluster index
+  int clusterIndex;
+};
+*/
+
+const float pi = 3.14159f;
+
+//! lookup table for 2d gaussian (sigma = 2.5) where (0,0) is top left and (6,6) is bottom right
+const double gauss25 [7][7] = {
+  0.02546481, 0.02350698, 0.01849125, 0.01239505, 0.00708017, 0.00344629, 0.00142946,
+  0.02350698, 0.02169968, 0.01706957, 0.01144208, 0.00653582, 0.00318132, 0.00131956,
+  0.01849125, 0.01706957, 0.01342740, 0.00900066, 0.00514126, 0.00250252, 0.00103800,
+  0.01239505, 0.01144208, 0.00900066, 0.00603332, 0.00344629, 0.00167749, 0.00069579,
+  0.00708017, 0.00653582, 0.00514126, 0.00344629, 0.00196855, 0.00095820, 0.00039744,
+  0.00344629, 0.00318132, 0.00250252, 0.00167749, 0.00095820, 0.00046640, 0.00019346,
+  0.00142946, 0.00131956, 0.00103800, 0.00069579, 0.00039744, 0.00019346, 0.00008024
+};
+
+float getAngle(float X, float Y)
+{
+  if(X > 0 && Y >= 0)
+    return atan(Y/X);
+
+  if(X < 0 && Y >= 0)
+    return pi - atan(-Y/X);
+
+  if(X < 0 && Y < 0)
+    return pi + atan(Y/X);
+
+  if(X > 0 && Y < 0)
+    return 2*pi - atan(-Y/X);
+
+  return 0;
+}
+
+
+inline int fRound(float flt)
+{
+  return (int) floor(flt+0.5f);
+}
+
+
 
 float gaussian(float x, float y, float sig)
 {
@@ -15,25 +196,6 @@ float gaussian(int x, int y, float sig)
 }
 
 
-float BoxIntegral(IplImage *img, int row, int col, int rows, int cols) 
-{
-  float *data = (float *) img->imageData;
-  int step = img->widthStep/sizeof(float);
-
-  // The subtraction by one for row/col is because row/col is inclusive.
-  int r1 = std::min(row,          img->height) - 1;
-  int c1 = std::min(col,          img->width)  - 1;
-  int r2 = std::min(row + rows,   img->height) - 1;
-  int c2 = std::min(col + cols,   img->width)  - 1;
-
-  float A(0.0f), B(0.0f), C(0.0f), D(0.0f);
-  if (r1 >= 0 && c1 >= 0) A = data[r1 * step + c1];
-  if (r1 >= 0 && c2 >= 0) B = data[r1 * step + c2];
-  if (r2 >= 0 && c1 >= 0) C = data[r2 * step + c1];
-  if (r2 >= 0 && c2 >= 0) D = data[r2 * step + c2];
-
-  return std::max(0.f, A - B - C + D);
-}
 
 
 float haarX(int row, int column, int s, IplImage *img)
@@ -47,9 +209,9 @@ float haarY(int row, int column, int s, IplImage *img)
 }
 
 
-float Orientation(Ipvec &ipts)
+float Orientation(IpVec &ipts,int & index,IplImage* & img)
 {
-  Ipoint *ipt = &ipts[index];
+  Ipoint *ipt = &(ipts[index]);
   float gauss = 0.f, scale = ipt->scale;
   const int s = fRound(scale), r = fRound(ipt->y), c = fRound(ipt->x);
   std::vector<float> resX(109), resY(109), Ang(109);
@@ -64,8 +226,8 @@ float Orientation(Ipvec &ipts)
       if(i*i + j*j < 36) 
       {
         gauss = static_cast<float>(gauss25[id[i+6]][id[j+6]]);  // could use abs() rather than id lookup, but this way is faster
-        resX[idx] = gauss * haarX(r+j*s, c+i*s, 4*s);
-        resY[idx] = gauss * haarY(r+j*s, c+i*s, 4*s);
+        resX[idx] = gauss * haarX(r+j*s, c+i*s, 4*s,img);
+        resY[idx] = gauss * haarY(r+j*s, c+i*s, 4*s,img);
         Ang[idx] = getAngle(resX[idx], resY[idx]);
         ++idx;
       }
@@ -117,8 +279,7 @@ float Orientation(Ipvec &ipts)
 
 
 
-
-void descriptor(bool bUpright,Ipvec &ipts, IplImage* & img)
+void Descriptor(bool bUpright,IpVec &ipts, IplImage* & img, int & index)
 {
   int y, x, sample_x, sample_y, count=0;
   int i = 0, ix = 0, j = 0, jx = 0, xs = 0, ys = 0;
@@ -216,58 +377,62 @@ void descriptor(bool bUpright,Ipvec &ipts, IplImage* & img)
 
 int main()
 {
-	//vector de kpoints
-	IpVec ipts;
-  	IplImage *img=cvLoadImage("Firefox_wallpaper.png");
-
-	IplImage *int_img = Integral(img);
-
-	FastHessian fh(int_img, ipts, octaves, intervals, init_sample, thres);
+  //vector de kpoints
+  std::cout<<"asdsadsa"<<std::endl;
+  IpVec ipts;
+    IplImage *img=cvLoadImage("Firefox_wallpaper.png");
+  int index;
+  IplImage *int_img = Integral(img);
+  bool upright = false; 
+  int octaves = 4;
+  int intervals = 4;
+  int init_sample = 2;
+  float thres = 0.0001f;
+  FastHessian fh(int_img, ipts, octaves, intervals, init_sample, thres);
  
   // Extract interest points and store in vector ipts
-  	fh.getIpoints();
+    fh.getIpoints();
 
-    Surf des(int_img, ipts);
 
     ///
-    if (!ipts.size()) return;
+    if (!ipts.size()) return -1;
 
   // Get the size of the vector for fixed loop bounds
-	int ipts_size = (int)ipts.size();
+  int ipts_size = (int)ipts.size();
 
-	if (upright)
-	{
-		// U-SURF loop just gets descriptors
-		for (int i = 0; i < ipts_size; ++i)
-		{
-		  // Set the Ipoint to be described
-			  index = i;
+  if (upright)
+  {
+    // U-SURF loop just gets descriptors
+    for (int i = 0; i < ipts_size; ++i)
+    {
+      // Set the Ipoint to be described
+        index = i;
 
-			  // Extract upright (i.e. not rotation invariant) descriptors
-			  Descriptor(true, ipts,img);
-		}
-	}
-	else
-	{
-		// Main SURF-64 loop assigns orientations and gets descriptors
-		for (int i = 0; i < ipts_size; ++i)
-		{
-		  // Set the Ipoint to be described
-		  index = i;
+        // Extract upright (i.e. not rotation invariant) descriptors
+        Descriptor(true, ipts,img,index);
+    }
+  }
+  else
+  {
+    // Main SURF-64 loop assigns orientations and gets descriptors
+    for (int i = 0; i < ipts_size; ++i)
+    {
+      // Set the Ipoint to be described
+      index = i;
 
-		  // Assign Orientations and extract rotation invariant descriptors
-		  getOrientation();
-		  Descriptor(false,ipts,img);
-		}
-	}
+      // Assign Orientations and extract rotation invariant descriptors
+      Orientation(ipts,index,img);
+      Descriptor(false,ipts,img,index);
+    }
+  }
     ///
 
 
 
 
   // Extract the descriptors for the ipts
- 	des.getDescriptors(upright);
+//  des.getDescriptors(upright);
 
   // Deallocate the integral image
-  	cvReleaseImage(&int_img);
+    cvReleaseImage(&int_img);
 }
