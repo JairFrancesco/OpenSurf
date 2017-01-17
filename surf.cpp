@@ -268,8 +268,9 @@ inline float Surf::gaussian(float x, float y, float sig)
 //! Calculate Haar wavelet responses in x direction
 inline float Surf::haarX(int row, int column, int s)
 {
-  return BoxIntegral(img, row-s/2, column, s, s/2) 
-    -1 * BoxIntegral(img, row-s/2, column-s/2, s, s/2);
+  ImagenIntegral* imgInt =  new ImagenIntegral();
+  return imgInt->CajaIntegral(img, row-s/2, column, s, s/2) 
+    -1 * imgInt->CajaIntegral(img, row-s/2, column-s/2, s, s/2);
 }
 
 //-------------------------------------------------------
@@ -277,8 +278,9 @@ inline float Surf::haarX(int row, int column, int s)
 //! Calculate Haar wavelet responses in y direction
 inline float Surf::haarY(int row, int column, int s)
 {
-  return BoxIntegral(img, row, column-s/2, s/2, s) 
-    -1 * BoxIntegral(img, row-s/2, column-s/2, s/2, s);
+  ImagenIntegral* imgInt =  new ImagenIntegral();
+  return imgInt->CajaIntegral(img, row, column-s/2, s/2, s) 
+    -1 * imgInt->CajaIntegral(img, row-s/2, column-s/2, s/2, s);
 }
 
 //-------------------------------------------------------

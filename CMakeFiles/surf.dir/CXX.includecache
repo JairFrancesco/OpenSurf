@@ -6,75 +6,71 @@
 
 #IncludeRegexTransform: 
 
-/home/jairfrancesco/OpenSurf/fasthessian.cpp
-integral.h
-/home/jairfrancesco/OpenSurf/integral.h
-ipoint.h
-/home/jairfrancesco/OpenSurf/ipoint.h
+/home/jairfrancesco/SURFImplementation/ImagenIntegral.h
+opencv/cv.h
+-
+algorithm
+-
 utils.h
-/home/jairfrancesco/OpenSurf/utils.h
+/home/jairfrancesco/SURFImplementation/utils.h
+
+/home/jairfrancesco/SURFImplementation/fasthessian.cpp
+ImagenIntegral.h
+/home/jairfrancesco/SURFImplementation/ImagenIntegral.h
+ipoint.h
+/home/jairfrancesco/SURFImplementation/ipoint.h
+utils.h
+/home/jairfrancesco/SURFImplementation/utils.h
 vector
 -
 responselayer.h
-/home/jairfrancesco/OpenSurf/responselayer.h
+/home/jairfrancesco/SURFImplementation/responselayer.h
 fasthessian.h
-/home/jairfrancesco/OpenSurf/fasthessian.h
+/home/jairfrancesco/SURFImplementation/fasthessian.h
 
-/home/jairfrancesco/OpenSurf/fasthessian.h
+/home/jairfrancesco/SURFImplementation/fasthessian.h
 opencv/cv.h
 -
 ipoint.h
-/home/jairfrancesco/OpenSurf/ipoint.h
+/home/jairfrancesco/SURFImplementation/ipoint.h
 vector
 -
 
-/home/jairfrancesco/OpenSurf/integral.cpp
-utils.h
-/home/jairfrancesco/OpenSurf/utils.h
-integral.h
-/home/jairfrancesco/OpenSurf/integral.h
-
-/home/jairfrancesco/OpenSurf/integral.h
-algorithm
--
-opencv/cv.h
--
-
-/home/jairfrancesco/OpenSurf/ipoint.cpp
+/home/jairfrancesco/SURFImplementation/ipoint.cpp
 vector
 -
 opencv2/calib3d.hpp
 -
 ipoint.h
-/home/jairfrancesco/OpenSurf/ipoint.h
+/home/jairfrancesco/SURFImplementation/ipoint.h
 
-/home/jairfrancesco/OpenSurf/ipoint.h
+/home/jairfrancesco/SURFImplementation/ipoint.h
 vector
 -
 math.h
 -
 
-/home/jairfrancesco/OpenSurf/responselayer.h
+/home/jairfrancesco/SURFImplementation/responselayer.h
 memory.h
 -
 
-/home/jairfrancesco/OpenSurf/surf.cpp
+/home/jairfrancesco/SURFImplementation/surf.cpp
 utils.h
-/home/jairfrancesco/OpenSurf/utils.h
+/home/jairfrancesco/SURFImplementation/utils.h
 surf.h
-/home/jairfrancesco/OpenSurf/surf.h
+/home/jairfrancesco/SURFImplementation/surf.h
 
-/home/jairfrancesco/OpenSurf/surf.h
+/home/jairfrancesco/SURFImplementation/surf.h
 opencv/cv.h
 -
 ipoint.h
-/home/jairfrancesco/OpenSurf/ipoint.h
-integral.h
-/home/jairfrancesco/OpenSurf/integral.h
+/home/jairfrancesco/SURFImplementation/ipoint.h
+ImagenIntegral.h
+/home/jairfrancesco/SURFImplementation/ImagenIntegral.h
 vector
 -
 
-/home/jairfrancesco/OpenSurf/utils.cpp
+/home/jairfrancesco/SURFImplementation/utils.cpp
 opencv/highgui.h
 -
 iostream
@@ -84,13 +80,13 @@ fstream
 time.h
 -
 utils.h
-/home/jairfrancesco/OpenSurf/utils.h
+/home/jairfrancesco/SURFImplementation/utils.h
 
-/home/jairfrancesco/OpenSurf/utils.h
+/home/jairfrancesco/SURFImplementation/utils.h
 opencv/cv.h
 -
 ipoint.h
-/home/jairfrancesco/OpenSurf/ipoint.h
+/home/jairfrancesco/SURFImplementation/ipoint.h
 vector
 -
 

@@ -1,20 +1,11 @@
-/*********************************************************** 
-*  --- OpenSURF ---                                       *
-*  This library is distributed under the GNU GPL. Please   *
-*  use the contact form at http://www.chrisevansdev.com    *
-*  for more information.                                   *
-*                                                          *
-*  C. Evans, Research Into Robust Visual Features,         *
-*  MSc University of Bristol, 2008.                        *
-*                                                          *
-************************************************************/
 
 #ifndef SURF_H
 #define SURF_H
 
 #include <opencv/cv.h>
 #include "ipoint.h"
-#include "integral.h"
+//#include "integral.h"
+#include "ImagenIntegral.h"
 
 #include <vector>
 
@@ -22,10 +13,10 @@ class Surf {
   
   public:
     
-    //! Standard Constructor (img is an integral image)
+    // img es una imagen integral
     Surf(IplImage *img, std::vector<Ipoint> &ipts);
 
-    //! Describe all features in the supplied vector
+    //!Describir todas las caracteristicas en el vector dado
     void getDescriptors(bool bUpright = false);
   
   private:
@@ -50,15 +41,11 @@ class Surf {
     float getAngle(float X, float Y);
 
 
-    //---------------- Private Variables -----------------//
-
-    //! Integral image where Ipoints have been detected
+    //! imagen integral donde los Ipoints han sido detectados
     IplImage *img;
-
     //! Ipoints vector
     IpVec &ipts;
-
-    //! Index of current Ipoint in the vector
+    //! indice de actual Ipoint en el vector
     int index;
 };
 

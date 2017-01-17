@@ -1,15 +1,6 @@
-/*********************************************************** 
-*  --- OpenSURF ---                                       *
-*  This library is distributed under the GNU GPL. Please   *
-*  use the contact form at http://www.chrisevansdev.com    *
-*  for more information.                                   *
-*                                                          *
-*  C. Evans, Research Into Robust Visual Features,         *
-*  MSc University of Bristol, 2008.                        *
-*                                                          *
-************************************************************/
+//#include "integral.h"
 
-#include "integral.h"
+#include "ImagenIntegral.h"
 #include "ipoint.h"
 #include "utils.h"
 
@@ -209,15 +200,16 @@ void FastHessian::buildResponseLayer(ResponseLayer *rl)
       r = ar * step;
       c = ac * step; 
 
+      ImagenIntegral* imgInt = new ImagenIntegral();
       // Compute response components
-      Dxx = BoxIntegral(img, r - l + 1, c - b, 2*l - 1, w)
-          - BoxIntegral(img, r - l + 1, c - l / 2, 2*l - 1, l)*3;
-      Dyy = BoxIntegral(img, r - b, c - l + 1, w, 2*l - 1)
-          - BoxIntegral(img, r - l / 2, c - l + 1, l, 2*l - 1)*3;
-      Dxy = + BoxIntegral(img, r - l, c + 1, l, l)
-            + BoxIntegral(img, r + 1, c - l, l, l)
-            - BoxIntegral(img, r - l, c - l, l, l)
-            - BoxIntegral(img, r + 1, c + 1, l, l);
+      Dxx = imgInt->CajaIntegral(img, r - l + 1, c - b, 2*l - 1, w)
+          - imgInt->CajaIntegral(img, r - l + 1, c - l / 2, 2*l - 1, l)*3;
+      Dyy = imgInt->CajaIntegral(img, r - b, c - l + 1, w, 2*l - 1)
+          - imgInt->CajaIntegral(img, r - l / 2, c - l + 1, l, 2*l - 1)*3;
+      Dxy = + imgInt->CajaIntegral(img, r - l, c + 1, l, l)
+            + imgInt->CajaIntegral(img, r + 1, c - l, l, l)
+            - imgInt->CajaIntegral(img, r - l, c - l, l, l)
+            - imgInt->CajaIntegral(img, r + 1, c + 1, l, l);
 
       // Normalise the filter responses with respect to their size
       Dxx *= inverse_area;

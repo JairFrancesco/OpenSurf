@@ -15,7 +15,8 @@
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
 
-#include "integral.h"
+//#include "integral.h"
+//#include "ImagenIntegral.h"
 #include "fasthessian.h"
 #include "surf.h"
 #include "ipoint.h"
@@ -31,8 +32,9 @@ inline void surfDetDes(IplImage *img,  /* image to find Ipoints in */
                        int init_sample = INIT_SAMPLE, /* initial sampling step */
                        float thres = THRES /* blob response threshold */)
 {
+  ImagenIntegral* imgInt = new ImagenIntegral();
   // Create integral-image representation of the image
-  IplImage *int_img = Integral(img);
+  IplImage *int_img = imgInt->Calcular(img);
   
   // Create Fast Hessian Object
   FastHessian fh(int_img, ipts, octaves, intervals, init_sample, thres);
@@ -59,8 +61,9 @@ inline void surfDet(IplImage *img,  /* image to find Ipoints in */
                     int init_sample = INIT_SAMPLE, /* initial sampling step */
                     float thres = THRES /* blob response threshold */)
 {
+  ImagenIntegral* imgInt = new ImagenIntegral();
   // Create integral image representation of the image
-  IplImage *int_img = Integral(img);
+  IplImage *int_img = imgInt->Calcular(img);
 
   // Create Fast Hessian Object
   FastHessian fh(int_img, ipts, octaves, intervals, init_sample, thres);
@@ -80,8 +83,9 @@ inline void surfDes(IplImage *img,  /* image to find Ipoints in */
                     std::vector<Ipoint> &ipts, /* reference to vector of Ipoints */
                     bool upright = false) /* run in rotation invariant mode? */
 { 
+  ImagenIntegral* imgInt = new ImagenIntegral();
   // Create integral image representation of the image
-  IplImage *int_img = Integral(img);
+  IplImage *int_img = imgInt->Calcular(img);
 
   // Create Surf Descriptor Object
   Surf des(int_img, ipts);

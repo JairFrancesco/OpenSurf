@@ -1,6 +1,6 @@
 SET (SURF_LIB_SOURCES
         fasthessian
-        integral
+        ImagenIntegral
         surf
         utils
         ipoint

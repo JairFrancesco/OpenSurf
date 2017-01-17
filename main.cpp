@@ -28,7 +28,7 @@ int mainImage()
 {
   // Declare Ipoints and other stuff
   IpVec ipts;
-  IplImage *img=cvLoadImage("Firefox_wallpaper.png");
+  IplImage *img=cvLoadImage("Arequipa_01.jpg");
 
   // Detect and describe interest points in the image
   clock_t start = clock();

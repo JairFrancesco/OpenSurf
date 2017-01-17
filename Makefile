@@ -42,10 +42,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jairfrancesco/OpenSurf
+CMAKE_SOURCE_DIR = /home/jairfrancesco/SURFImplementation
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jairfrancesco/OpenSurf
+CMAKE_BINARY_DIR = /home/jairfrancesco/SURFImplementation
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -72,9 +72,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jairfrancesco/OpenSurf/CMakeFiles /home/jairfrancesco/OpenSurf/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jairfrancesco/SURFImplementation/CMakeFiles /home/jairfrancesco/SURFImplementation/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jairfrancesco/OpenSurf/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jairfrancesco/SURFImplementation/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -141,21 +141,6 @@ fasthessian.i:
 fasthessian.s:
 	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/fasthessian.s
 .PHONY : fasthessian.s
-
-# target to build an object file
-integral.o:
-	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/integral.o
-.PHONY : integral.o
-
-# target to preprocess a source file
-integral.i:
-	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/integral.i
-.PHONY : integral.i
-
-# target to generate assembly for a file
-integral.s:
-	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/integral.s
-.PHONY : integral.s
 
 # target to build an object file
 ipoint.o:
@@ -230,9 +215,6 @@ help:
 	@echo "... fasthessian.o"
 	@echo "... fasthessian.i"
 	@echo "... fasthessian.s"
-	@echo "... integral.o"
-	@echo "... integral.i"
-	@echo "... integral.s"
 	@echo "... ipoint.o"
 	@echo "... ipoint.i"
 	@echo "... ipoint.s"

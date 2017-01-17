@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/surf.dir/fasthessian.o"
-  "CMakeFiles/surf.dir/integral.o"
   "CMakeFiles/surf.dir/surf.o"
   "CMakeFiles/surf.dir/utils.o"
   "CMakeFiles/surf.dir/ipoint.o"
