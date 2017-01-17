@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/jairfrancesco/SURFImplementation
 CMakeFiles/surf.dir/all:
 	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/depend
 	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jairfrancesco/SURFImplementation/CMakeFiles  1 2 3 4
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jairfrancesco/SURFImplementation/CMakeFiles  1 2 3
 	@echo "Built target surf"
 .PHONY : CMakeFiles/surf.dir/all
 
@@ -69,7 +69,7 @@ all: CMakeFiles/surf.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/surf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jairfrancesco/SURFImplementation/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jairfrancesco/SURFImplementation/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/surf.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jairfrancesco/SURFImplementation/CMakeFiles 0
 .PHONY : CMakeFiles/surf.dir/rule
@@ -94,7 +94,7 @@ clean: CMakeFiles/surf.dir/clean
 CMakeFiles/surffeat.dir/all: CMakeFiles/surf.dir/all
 	$(MAKE) -f CMakeFiles/surffeat.dir/build.make CMakeFiles/surffeat.dir/depend
 	$(MAKE) -f CMakeFiles/surffeat.dir/build.make CMakeFiles/surffeat.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jairfrancesco/SURFImplementation/CMakeFiles  5
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jairfrancesco/SURFImplementation/CMakeFiles  4
 	@echo "Built target surffeat"
 .PHONY : CMakeFiles/surffeat.dir/all
 
@@ -104,7 +104,7 @@ all: CMakeFiles/surffeat.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/surffeat.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jairfrancesco/SURFImplementation/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jairfrancesco/SURFImplementation/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/surffeat.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jairfrancesco/SURFImplementation/CMakeFiles 0
 .PHONY : CMakeFiles/surffeat.dir/rule

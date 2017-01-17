@@ -128,21 +128,6 @@ surffeat/fast:
 .PHONY : surffeat/fast
 
 # target to build an object file
-fasthessian.o:
-	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/fasthessian.o
-.PHONY : fasthessian.o
-
-# target to preprocess a source file
-fasthessian.i:
-	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/fasthessian.i
-.PHONY : fasthessian.i
-
-# target to generate assembly for a file
-fasthessian.s:
-	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/fasthessian.s
-.PHONY : fasthessian.s
-
-# target to build an object file
 ipoint.o:
 	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/ipoint.o
 .PHONY : ipoint.o
@@ -212,9 +197,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... surffeat"
-	@echo "... fasthessian.o"
-	@echo "... fasthessian.i"
-	@echo "... fasthessian.s"
 	@echo "... ipoint.o"
 	@echo "... ipoint.i"
 	@echo "... ipoint.s"

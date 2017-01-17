@@ -1,2 +1,2 @@
-/usr/bin/ar cq libsurf.a  CMakeFiles/surf.dir/fasthessian.o CMakeFiles/surf.dir/surf.o CMakeFiles/surf.dir/utils.o CMakeFiles/surf.dir/ipoint.o
+/usr/bin/ar cq libsurf.a  CMakeFiles/surf.dir/surf.o CMakeFiles/surf.dir/utils.o CMakeFiles/surf.dir/ipoint.o
 /usr/bin/ranlib libsurf.a

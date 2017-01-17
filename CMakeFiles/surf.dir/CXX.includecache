@@ -14,28 +14,6 @@ algorithm
 utils.h
 /home/jairfrancesco/SURFImplementation/utils.h
 
-/home/jairfrancesco/SURFImplementation/fasthessian.cpp
-ImagenIntegral.h
-/home/jairfrancesco/SURFImplementation/ImagenIntegral.h
-ipoint.h
-/home/jairfrancesco/SURFImplementation/ipoint.h
-utils.h
-/home/jairfrancesco/SURFImplementation/utils.h
-vector
--
-responselayer.h
-/home/jairfrancesco/SURFImplementation/responselayer.h
-fasthessian.h
-/home/jairfrancesco/SURFImplementation/fasthessian.h
-
-/home/jairfrancesco/SURFImplementation/fasthessian.h
-opencv/cv.h
--
-ipoint.h
-/home/jairfrancesco/SURFImplementation/ipoint.h
-vector
--
-
 /home/jairfrancesco/SURFImplementation/ipoint.cpp
 vector
 -
@@ -48,10 +26,6 @@ ipoint.h
 vector
 -
 math.h
--
-
-/home/jairfrancesco/SURFImplementation/responselayer.h
-memory.h
 -
 
 /home/jairfrancesco/SURFImplementation/surf.cpp

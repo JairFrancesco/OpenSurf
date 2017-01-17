@@ -1,3 +1,6 @@
+#ifndef IMAGENINTEGRAL_H
+#define IMAGENINTEGRAL_H
+
 #include <opencv/cv.h>
 #include <algorithm>
 #include "utils.h"
@@ -56,3 +59,4 @@ class ImagenIntegral
 		}
 };
 
+#endif

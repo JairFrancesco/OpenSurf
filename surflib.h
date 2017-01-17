@@ -1,14 +1,3 @@
-/*********************************************************** 
-*  --- OpenSURF ---                                       *
-*  This library is distributed under the GNU GPL. Please   *
-*  use the contact form at http://www.chrisevansdev.com    *
-*  for more information.                                   *
-*                                                          *
-*  C. Evans, Research Into Robust Visual Features,         *
-*  MSc University of Bristol, 2008.                        *
-*                                                          *
-************************************************************/
-
 #ifndef SURFLIB_H
 #define SURFLIB_H
 
@@ -16,7 +5,7 @@
 #include <opencv/highgui.h>
 
 //#include "integral.h"
-//#include "ImagenIntegral.h"
+#include "ImagenIntegral.h"
 #include "fasthessian.h"
 #include "surf.h"
 #include "ipoint.h"

@@ -5,6 +5,7 @@ CMakeFiles/surffeat.dir/main.o: ImagenIntegral.h
 CMakeFiles/surffeat.dir/main.o: fasthessian.h
 CMakeFiles/surffeat.dir/main.o: ipoint.h
 CMakeFiles/surffeat.dir/main.o: main.cpp
+CMakeFiles/surffeat.dir/main.o: responselayer.h
 CMakeFiles/surffeat.dir/main.o: surf.h
 CMakeFiles/surffeat.dir/main.o: surflib.h
 CMakeFiles/surffeat.dir/main.o: utils.h

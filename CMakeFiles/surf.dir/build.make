@@ -49,32 +49,9 @@ include CMakeFiles/surf.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/surf.dir/flags.make
 
-CMakeFiles/surf.dir/fasthessian.o: CMakeFiles/surf.dir/flags.make
-CMakeFiles/surf.dir/fasthessian.o: fasthessian.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jairfrancesco/SURFImplementation/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/surf.dir/fasthessian.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/surf.dir/fasthessian.o -c /home/jairfrancesco/SURFImplementation/fasthessian.cpp
-
-CMakeFiles/surf.dir/fasthessian.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/surf.dir/fasthessian.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jairfrancesco/SURFImplementation/fasthessian.cpp > CMakeFiles/surf.dir/fasthessian.i
-
-CMakeFiles/surf.dir/fasthessian.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/surf.dir/fasthessian.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jairfrancesco/SURFImplementation/fasthessian.cpp -o CMakeFiles/surf.dir/fasthessian.s
-
-CMakeFiles/surf.dir/fasthessian.o.requires:
-.PHONY : CMakeFiles/surf.dir/fasthessian.o.requires
-
-CMakeFiles/surf.dir/fasthessian.o.provides: CMakeFiles/surf.dir/fasthessian.o.requires
-	$(MAKE) -f CMakeFiles/surf.dir/build.make CMakeFiles/surf.dir/fasthessian.o.provides.build
-.PHONY : CMakeFiles/surf.dir/fasthessian.o.provides
-
-CMakeFiles/surf.dir/fasthessian.o.provides.build: CMakeFiles/surf.dir/fasthessian.o
-
 CMakeFiles/surf.dir/surf.o: CMakeFiles/surf.dir/flags.make
 CMakeFiles/surf.dir/surf.o: surf.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jairfrancesco/SURFImplementation/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jairfrancesco/SURFImplementation/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/surf.dir/surf.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/surf.dir/surf.o -c /home/jairfrancesco/SURFImplementation/surf.cpp
 
@@ -97,7 +74,7 @@ CMakeFiles/surf.dir/surf.o.provides.build: CMakeFiles/surf.dir/surf.o
 
 CMakeFiles/surf.dir/utils.o: CMakeFiles/surf.dir/flags.make
 CMakeFiles/surf.dir/utils.o: utils.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jairfrancesco/SURFImplementation/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jairfrancesco/SURFImplementation/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/surf.dir/utils.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/surf.dir/utils.o -c /home/jairfrancesco/SURFImplementation/utils.cpp
 
@@ -120,7 +97,7 @@ CMakeFiles/surf.dir/utils.o.provides.build: CMakeFiles/surf.dir/utils.o
 
 CMakeFiles/surf.dir/ipoint.o: CMakeFiles/surf.dir/flags.make
 CMakeFiles/surf.dir/ipoint.o: ipoint.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jairfrancesco/SURFImplementation/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jairfrancesco/SURFImplementation/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/surf.dir/ipoint.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/surf.dir/ipoint.o -c /home/jairfrancesco/SURFImplementation/ipoint.cpp
 
@@ -143,7 +120,6 @@ CMakeFiles/surf.dir/ipoint.o.provides.build: CMakeFiles/surf.dir/ipoint.o
 
 # Object files for target surf
 surf_OBJECTS = \
-"CMakeFiles/surf.dir/fasthessian.o" \
 "CMakeFiles/surf.dir/surf.o" \
 "CMakeFiles/surf.dir/utils.o" \
 "CMakeFiles/surf.dir/ipoint.o"
@@ -151,7 +127,6 @@ surf_OBJECTS = \
 # External object files for target surf
 surf_EXTERNAL_OBJECTS =
 
-libsurf.a: CMakeFiles/surf.dir/fasthessian.o
 libsurf.a: CMakeFiles/surf.dir/surf.o
 libsurf.a: CMakeFiles/surf.dir/utils.o
 libsurf.a: CMakeFiles/surf.dir/ipoint.o
@@ -165,7 +140,6 @@ libsurf.a: CMakeFiles/surf.dir/link.txt
 CMakeFiles/surf.dir/build: libsurf.a
 .PHONY : CMakeFiles/surf.dir/build
 
-CMakeFiles/surf.dir/requires: CMakeFiles/surf.dir/fasthessian.o.requires
 CMakeFiles/surf.dir/requires: CMakeFiles/surf.dir/surf.o.requires
 CMakeFiles/surf.dir/requires: CMakeFiles/surf.dir/utils.o.requires
 CMakeFiles/surf.dir/requires: CMakeFiles/surf.dir/ipoint.o.requires
