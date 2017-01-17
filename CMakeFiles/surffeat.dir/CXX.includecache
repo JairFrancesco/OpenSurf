@@ -28,21 +28,9 @@ vector
 math.h
 -
 
-/home/jairfrancesco/SURFImplementation/kmeans.h
-ipoint.h
-/home/jairfrancesco/SURFImplementation/ipoint.h
-vector
--
-time.h
--
-stdlib.h
--
-
 /home/jairfrancesco/SURFImplementation/main.cpp
 surflib.h
 /home/jairfrancesco/SURFImplementation/surflib.h
-kmeans.h
-/home/jairfrancesco/SURFImplementation/kmeans.h
 ctime
 -
 iostream
